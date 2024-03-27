@@ -1,0 +1,47 @@
+﻿@using Circuit_Controller.Services
+@using Microsoft.JSInterop
+@inject IScopedCircuitController ScopedCircuit
+@inject ICircuitController Circuit
+@inject IJSRuntime JsRuntime
+
+<div id="shell">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private bool _active = true;
+    private DotNetObjectReference<CircuitShell> shellReference = default!;
+
+    protected override async void OnAfterRender(bool firstRender)
+    {
+        if (!firstRender)
+            return;
+
+        shellReference = DotNetObjectReference.Create(this);
+
+        // Load js interop.
+        await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/CircuitController/Activity.js");
+
+        await JsRuntime.InvokeVoidAsync("userActivity.setupActivityTracker", shellReference, 2500);
+    }
+
+    [JSInvokable]
+    public void NotifyUserInactive(bool state)
+    {
+        Console.WriteLine("Inactive: " + ScopedCircuit.CircuitId + $" {state}");
+        // Change the state of our circuit to not get updated if it is inactive.
+        Circuit.SetCircuitState(ScopedCircuit.CircuitId, state);
+        InvokeAsync(StateHasChanged);
+    }
+
+    [JSInvokable]
+    public void NotifyUserActive(bool state)
+    {
+        Console.WriteLine("Active: " + ScopedCircuit.CircuitId + $" {state}");
+        Circuit.SetCircuitState(ScopedCircuit.CircuitId, state);
+        // Update the whole circuit.
+        InvokeAsync(StateHasChanged);
+    }
+}

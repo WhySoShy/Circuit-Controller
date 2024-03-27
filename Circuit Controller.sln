@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CircuitTester", "CircuitTester\CircuitTester.csproj", "{1059D93D-E294-4445-92A9-7288C80DCC49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CircuitController", "CircuitController\CircuitController.csproj", "{48EA4EAF-B336-42FB-8E9A-6614E350975D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1059D93D-E294-4445-92A9-7288C80DCC49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1059D93D-E294-4445-92A9-7288C80DCC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1059D93D-E294-4445-92A9-7288C80DCC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1059D93D-E294-4445-92A9-7288C80DCC49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48EA4EAF-B336-42FB-8E9A-6614E350975D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48EA4EAF-B336-42FB-8E9A-6614E350975D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48EA4EAF-B336-42FB-8E9A-6614E350975D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48EA4EAF-B336-42FB-8E9A-6614E350975D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A9AC7BF-5820-4D4C-8BCC-1F00C41E0326}
+	EndGlobalSection
+EndGlobal

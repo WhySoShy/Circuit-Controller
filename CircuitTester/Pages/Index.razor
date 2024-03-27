@@ -1,0 +1,19 @@
+﻿@page "/"
+@using Circuit_Controller.Services
+@inject ICircuitController circuit
+@inject IScopedCircuitController scopedCircuit
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<p><button @onclick="() => circuit.DisplayAllCircuits()">Display circuits with interface</button></p>
+<p><button @onclick="() => circuit.DisplayActivityInOrder()">Display circuits in activity order</button></p>
+<p><button @onclick="() => circuit.Invoke()">Update all components</button></p>
+<p><button @onclick="() => circuit.Invoke(scopedCircuit.CircuitId)">Update all components in circuit</button></p>
+
+<p>CircuitID: @scopedCircuit.CircuitId</p>
